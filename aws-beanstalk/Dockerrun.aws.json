@@ -23,7 +23,7 @@
     },
     {
       "name": "rest",
-      "image": "opinionatedstack/rest-node",
+      "image": "opinionatedstack/rest-ts-node",
       "essential": true,
       "memory": 128,
       "portMappings": [
