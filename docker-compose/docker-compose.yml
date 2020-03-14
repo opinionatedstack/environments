@@ -4,7 +4,7 @@ services:
   rest:
     image: opinionatedstack/rest-node
     container_name: rest
-    restart: unless-stopped
+    #restart: unless-stopped
     ports:
       - 3000:3000
     networks:
@@ -15,7 +15,7 @@ services:
   payments:
     image: opinionatedstack/stripe-payments
     container_name: payments
-    restart: unless-stopped
+    #restart: unless-stopped
     ports:
       - 3001:3001
     networks:
@@ -26,7 +26,7 @@ services:
   web:
     image: opinionatedstack/web-angular
     container_name: web
-    restart: unless-stopped
+    #restart: unless-stopped
     depends_on:
       - rest
       - payments

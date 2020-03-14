@@ -1,0 +1,49 @@
+{
+  "AWSEBDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "web",
+      "image": "opinionatedstack/web-angular:latest-qa",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        },
+        {
+          "hostPort": 443,
+          "containerPort": 443
+        }
+      ],
+      "links": [
+        "payments",
+        "rest"
+      ]
+    },
+    {
+      "name": "rest",
+      "image": "opinionatedstack/rest-ts-node:latest-qa",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 3000,
+          "containerPort": 3000
+        }
+      ]
+    },
+    {
+      "name": "payments",
+      "image": "opinionatedstack/stripe-payments:latest-qa",
+      "essential": true,
+      "memory": 128,
+      "portMappings": [
+        {
+          "hostPort": 3001,
+          "containerPort": 3001
+        }
+      ]
+    }
+  ]
+}
